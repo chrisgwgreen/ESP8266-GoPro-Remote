@@ -5,13 +5,17 @@
 namespace config {
 // Serial
 extern int serialbaudrate;
+
 // Network
 extern const char* ssid;
 extern const char* password;
+
+// GoPro 
 extern const char* host;
+extern int port;
 extern const char* shutterUrl;
 extern const char* modeUrl;
-extern int port;
+
 // Pins
 extern int ledPin;
 extern int buttonPin;
