@@ -18,9 +18,31 @@ The following schematic shows the wiring for the remote. Note: This is the schem
 
 The [Fritzing](http://fritzing.org/home/) schematic can be found under `./sch`.
 
+### Configuration
+
+If you have changed the default WIFI settings on your GoPro, it will be necessary to alter the configuration file under `./conf/conf.cpp` to connect to your GoPro. Specifically the following: 
+
+```
+// Network
+const char* ssid = "goprohero";
+const char* password = "goprohero";
+```
+
+It is possible in the `platformIO.ini` configuration to specify ports and buad rates under the following: 
+
+```
+upload_speed = 921600
+; upload_port= /dev/cu.wchusbserial1410
+
+monitor_speed = 115200
+; monitor_port= /dev/cu.wchusbserial1410
+```
+
 ### Installing
 
 As mentioned previously, you will need a Serial Module to uppload this codebase to the ESP8266. After flashing the ESP module, the serial module is not required. Using Platform IO, the installation should be as simple as connecting the device in the Flash mode and clicking the integrated `PlatformIO: Upload` button. 
+
+
 
 ## Built With
 
@@ -34,3 +56,11 @@ As mentioned previously, you will need a Serial Module to uppload this codebase 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+
+## Future Plans
+
+* Currently the wifi connection settings are hard coded. It would be useful in future to incorporate the [WifiManager](https://github.com/tzapu/WiFiManager) to dynamically manage the SSID/Password. 
+
+* Incorporate an OLED display module to better communicate the devices state (c.f. an LED)
+
